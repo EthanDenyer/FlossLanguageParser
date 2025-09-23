@@ -12,7 +12,6 @@ print("What is the filepath")
 
 file_path = input()
 correct_extension = ".txt"
-detector = UniversalDetector()
 
 def input_check(file_path):
     if file_path[-4:] == (".txt"):
@@ -26,12 +25,26 @@ input_check(file_path)
 # Encoding Discovery (Chardet) Func
 def get_file_encode(file_path):
     
+    detector = UniversalDetector()
     global encode_result
-    encode_result = detector.result
+
+    # Read file in binary mode
+    with open(file_path, "rb") as f:
+        for line in f:
+            detector.feed(line)
+            if detector.done:  # stop early if confidence is high enough
+                break
+    detector.close()
+
+    return detector.result  # this is a dict with encoding, confidence, language
 
 # Call encoding
-get_file_encode(file_path)
 
+encode_result = get_file_encode(file_path) # Instance
+print("Encode guess:", encode_result)
+
+encoding = encode_result.get("encoding")
+confidence = encode_result.get("confidence", 0.0)
 # Discovery Debug Func
 
 def get_file_info(file_path):
@@ -43,4 +56,4 @@ def get_file_info(file_path):
 
 # File Opening
 
-f = open({file_path}, 'r', encoding={encode_result})
+f = open(file_path, 'r', encoding=encode_result["encoding"])
