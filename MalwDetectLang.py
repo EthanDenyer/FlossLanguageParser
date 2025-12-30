@@ -10,16 +10,16 @@
 import json
 from pathlib import Path
 
-# Stores
+# Stores # Examples
 
-hex_matches = []             # NEW
-decimal_matches = []         # NEW
-locale_matches = []          # NEW
-api_matches = []             # NEW
-native_name_matches = []     # NEW
-language_name_matches = []   # NEW
-country_name_matches = []    # NEW
-iso_code_matches = []        # NEW
+hex_matches = []             # 0x0422
+decimal_matches = []         # 1058
+locale_matches = []          # en-US
+api_matches = []             # GetSystemDefaultLangID
+native_name_matches = []     # Русский
+language_name_matches = []   # English (Australia) Variance by Nation 
+country_name_matches = []    # Belarus
+iso_code_matches = []        # UA (Ukraine)
 
 # File checking, collection and storage
 print("What is the filepath")
