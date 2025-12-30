@@ -10,10 +10,10 @@ from pathlib import Path
 
 # Stores
 
-hex_matches = []
-decimal_matches = []
-locale_matches = []
-api_matches = []
+hex_matches = []             # NEW
+decimal_matches = []         # NEW
+locale_matches = []          # NEW
+api_matches = []             # NEW
 native_name_matches = []     # NEW
 language_name_matches = []   # NEW
 country_name_matches = []    # NEW
@@ -47,8 +47,8 @@ print(f"Loaded {len(lines)} lines")
 print(lines[0:])
 
 # JSON Verify Load
-print(f"✓ Loaded {len(malware_dict)} sections")
-print(f"✓ CIS countries: {len(malware_dict['cis_exclusion_patterns']['standard_cis_list'])}")
+print(f"Loaded {len(malware_dict)} sections")
+print(f"CIS countries: {len(malware_dict['cis_exclusion_patterns']['standard_cis_list'])}")
 
 #STORE ASSIGNMENT
 lcid_database = malware_dict["complete_windows_lcid_database"]["languages"]
@@ -93,7 +93,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
         
-        # NEW: Language name
+        # Language name
         if entry["language"] in line:
             language_name_matches.append({
                 "language_name": entry["language"],
@@ -102,7 +102,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
         
-        # NEW: ISO code
+        # ISO code
         if entry["iso_639_2"] in line:
             iso_code_matches.append({
                 "iso_code": entry["iso_639_2"],
@@ -111,7 +111,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
     
-    # ADDED: Also check CIS exclusion patterns
+    # Also check CIS exclusion patterns
     for cis_entry in cis_list:
         
         # Hex
@@ -132,7 +132,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
         
-        # Note: CIS list uses "lang" not "locale", so we check differently
+        # CIS list 
         if cis_entry["lang"] in line:
             locale_matches.append({
                 "locale": cis_entry["lang"],
@@ -141,7 +141,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
         
-        # NEW: Native name
+        # Native name
         if cis_entry["native"] in line:
             native_name_matches.append({
                 "native_name": cis_entry["native"],
@@ -150,7 +150,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
         
-        # NEW: Country name
+        # Country name
         if cis_entry["country"] in line:
             country_name_matches.append({
                 "country": cis_entry["country"],
@@ -159,7 +159,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
         
-        # NEW: ISO code from CIS
+        # ISO code from CIS
         if cis_entry["lang"] in line:
             iso_code_matches.append({
                 "iso_code": cis_entry["lang"],
@@ -207,7 +207,7 @@ if len(api_matches) > 0:
 else:
     print("No matches API")
 
-# NEW: Display native name matches
+# Display native name matches
 if len(native_name_matches) > 0:
     print(f"✓ Found {len(native_name_matches)} NATIVE NAME matches:")
     for match in native_name_matches:
@@ -215,7 +215,7 @@ if len(native_name_matches) > 0:
 else:
     print("No matches native name")
 
-# NEW: Display language name matches
+# Display language name matches
 if len(language_name_matches) > 0:
     print(f"Found {len(language_name_matches)} LANGUAGE NAME matches:")
     for match in language_name_matches:
@@ -223,7 +223,7 @@ if len(language_name_matches) > 0:
 else:
     print("No matches language name")
 
-# NEW: Display country name matches
+# Display country name matches
 if len(country_name_matches) > 0:
     print(f"Found {len(country_name_matches)} COUNTRY NAME matches:")
     for match in country_name_matches:
@@ -231,7 +231,7 @@ if len(country_name_matches) > 0:
 else:
     print("No matches country name")
 
-# NEW: Display ISO code matches
+# Display ISO code matches
 if len(iso_code_matches) > 0:
     print(f"Found {len(iso_code_matches)} ISO CODE matches:")
     for match in iso_code_matches:
