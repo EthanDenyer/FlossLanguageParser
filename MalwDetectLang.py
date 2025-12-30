@@ -44,9 +44,9 @@ input_check(file_path)
 text = Path(file_path).read_text(encoding="utf-8", errors="replace")
 lines = text.splitlines()
 
-#DEBUG STRINGS
-print(f"Loaded {len(lines)} lines")
-print(lines[0:])
+# #DEBUG STRINGS
+# print(f"Loaded {len(lines)} lines")
+# print(lines[0:])
 
 # JSON Verify Load
 print(f"Loaded {len(malware_dict)} sections")
@@ -54,18 +54,18 @@ print(f"CIS countries: {len(malware_dict['cis_exclusion_patterns']['standard_cis
 
 #STORE ASSIGNMENT
 lcid_database = malware_dict["complete_windows_lcid_database"]["languages"]
-cis_list = malware_dict["cis_exclusion_patterns"]["standard_cis_list"]  # ADDED: CIS countries
+cis_list = malware_dict["cis_exclusion_patterns"]["standard_cis_list"]  
 api_functions = malware_dict["windows_api_locale_functions"]["functions"]
 
 #LCID database DEBUG
 print(f"LCID database has {len(lcid_database)} entries")
-print(f"CIS exclusion list has {len(cis_list)} entries")  # ADDED
+print(f"CIS exclusion list has {len(cis_list)} entries")  
 print(f"First LCID entry: {lcid_database[0]}")
 
-# Loop through lines ONCE
+# Loop once
 for line_num, line in enumerate(lines):
     
-    # Check ALL LCID patterns (Western targets)
+    # Check ALL LCID
     for entry in lcid_database:
         
         # Hex
@@ -209,9 +209,9 @@ if len(api_matches) > 0:
 else:
     print("No matches API")
 
-# Display native name matches
+#  native name matches
 if len(native_name_matches) > 0:
-    print(f"✓ Found {len(native_name_matches)} NATIVE NAME matches:")
+    print(f"Found {len(native_name_matches)} NATIVE NAME matches:")
     for match in native_name_matches:
         print(f"  {match['native_name']} = {match['country']} on line {match['line_number']}")
 else:
