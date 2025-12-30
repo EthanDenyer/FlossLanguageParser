@@ -1,7 +1,9 @@
 # FLARE Obfuscated String Solver [FLOSS] Output Parser 
 # Last update 30/12/2025
 # JSON Last Update 29/12/2025
-# Ethan
+# Logic is my own, early writeouts and tests were all performed by myself. AI was used to tidy up final version and make logic more readable and compact. 
+# Respective Docs found online for imports
+
 
 # Imports
 
