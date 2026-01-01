@@ -1,0 +1,256 @@
+FLOSS STATIC STRING DUMP
+=======================
+
+kernel32.dll
+user32.dll
+advapi32.dll
+ntdll.dll
+
+LoadLibraryA
+GetProcAddress
+VirtualAlloc
+VirtualProtect
+CreateThread
+CreateRemoteThread
+ExitProcess
+exit
+return
+
+--- Locale / Geofencing API calls ---
+GetSystemDefaultLangID
+GetUserDefaultLangID
+GetSystemDefaultLCID
+GetUserDefaultLCID
+GetLocaleInfoA
+GetLocaleInfoW
+GetUserDefaultUILanguage
+GetSystemDefaultUILanguage
+GetKeyboardLayout
+GetUserGeoID
+GetTimeZoneInformation
+
+--- Registry locale checks ---
+HKCU\Control Panel\International
+HKCU\Control Panel\International\Locale
+HKCU\Control Panel\International\sLanguage
+HKCU\Control Panel\International\sCountry
+
+HKLM\SYSTEM\CurrentControlSet\Control\Nls\Language
+HKLM\SYSTEM\CurrentControlSet\Control\Nls\Language\InstallLanguage
+HKLM\SYSTEM\CurrentControlSet\Control\Nls\Language\Default
+
+HKCU\Keyboard Layout\Preload
+HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layouts
+Layout Text
+
+--- CIS exclusion LCIDs (hex / dec) ---
+0x0419
+1049
+ru-RU
+
+0x0422
+1058
+uk-UA
+
+0x0423
+1059
+be-BY
+
+0x043F
+1087
+kk-KZ
+
+0x0443
+1091
+uz-UZ
+
+0x042B
+1067
+hy-AM
+
+0x0437
+1079
+ka-GE
+
+0x042C
+1068
+az-AZ
+
+0x0428
+1064
+tg-TJ
+
+0x0442
+1090
+tk-TM
+
+0x0440
+1088
+ky-KG
+
+0x2801
+10241
+ar-SY
+
+--- Kill-switch logic fragments ---
+if (GetSystemDefaultLangID() == 0x0419) ExitProcess(0)
+if (lang_id == 0x0422) exit
+if (lang_id == 0x0423) return
+if (lang_id in [0x0419,0x0422,0x0423]) ExitProcess
+if (GetKeyboardLayout() == 0x419) exit
+
+--- Western primary target LCIDs ---
+0x0409
+1033
+en-US
+
+0x0809
+2057
+en-GB
+
+0x0407
+1031
+de-DE
+
+0x040C
+1036
+fr-FR
+
+0x0C0A
+3082
+es-ES
+
+0x0410
+1040
+it-IT
+
+0x0416
+1046
+pt-BR
+
+--- Eastern Europe ---
+0x0415
+1045
+pl-PL
+
+0x0405
+1029
+cs-CZ
+
+0x041B
+1051
+sk-SK
+
+0x040E
+1038
+hu-HU
+
+0x0418
+1048
+ro-RO
+
+0x0402
+1026
+bg-BG
+
+--- Asia-Pacific ---
+0x0804
+2052
+zh-CN
+
+0x0404
+1028
+zh-TW
+
+0x0411
+1041
+ja-JP
+
+0x0412
+1042
+ko-KR
+
+0x041E
+1054
+th-TH
+
+0x042A
+1066
+vi-VN
+
+--- Encoding indicators ---
+cp1251
+windows-1251
+1251
+
+cp1252
+windows-1252
+1252
+
+cp1250
+windows-1250
+1250
+
+utf-8
+utf8
+65001
+
+cp936
+gb2312
+936
+
+cp950
+big5
+950
+
+cp932
+shift-jis
+932
+
+cp949
+euc-kr
+949
+
+cp1256
+windows-1256
+1256
+
+--- Language resource filenames ---
+lang_en.bin
+lang_ru.bin
+lang_de.bin
+lang_fr.bin
+lang_es.bin
+lang_it.bin
+lang_pt.bin
+lang_pl.bin
+lang_zh.bin
+lang_ja.bin
+lang_ko.bin
+lang_ar.bin
+
+_en.txt
+_ru.txt
+_de.txt
+_fr.txt
+_es.txt
+_pt.txt
+_zh.txt
+_ja.txt
+_ko.txt
+
+app.en.dll
+app.ru.dll
+
+locale\en
+locale\ru
+locale\de
+locale\fr
+
+--- Ransomware note fragments (multilingual) ---
+YOUR FILES ARE ENCRYPTED
+ATTENTION
+IMPORTANT
+
+IHRE DATEIEN SIND VERSCHLÜSSELT
+ACHTU

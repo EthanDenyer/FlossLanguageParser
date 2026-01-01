@@ -57,10 +57,10 @@ lcid_database = malware_dict["complete_windows_lcid_database"]["languages"]
 cis_list = malware_dict["cis_exclusion_patterns"]["standard_cis_list"]  
 api_functions = malware_dict["windows_api_locale_functions"]["functions"]
 
-#LCID database DEBUG
-print(f"LCID database has {len(lcid_database)} entries")
-print(f"CIS exclusion list has {len(cis_list)} entries")  
-print(f"First LCID entry: {lcid_database[0]}")
+# #LCID database DEBUG
+# print(f"LCID database has {len(lcid_database)} entries")
+# print(f"CIS exclusion list has {len(cis_list)} entries")  
+# print(f"First LCID entry: {lcid_database[0]}")
 
 # Loop once
 for line_num, line in enumerate(lines):
@@ -113,7 +113,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
     
-    # Also check CIS exclusion patterns
+    # CIS exclusion patterns
     for cis_entry in cis_list:
         
         # Hex
@@ -170,7 +170,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
     
-    # Check all API functions for this line
+    # API functions 
     for api in api_functions:
         if api["name"] in line:
             api_matches.append({
@@ -180,7 +180,7 @@ for line_num, line in enumerate(lines):
                 "line_content": line
             })
 
-# Display all results with details
+# Display all results with details - probably an easier way to do this later on?? Combining needed??
 if len(hex_matches) > 0:
     print(f"Found {len(hex_matches)} HEX matches:")
     for match in hex_matches:

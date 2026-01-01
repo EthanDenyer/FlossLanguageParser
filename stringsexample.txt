@@ -1,0 +1,259 @@
+FLOSS OUTPUT - STATIC STRING EXTRACTION
+======================================
+
+GetProcAddress
+LoadLibraryA
+VirtualAlloc
+VirtualProtect
+CreateRemoteThread
+NtQueryInformationProcess
+IsDebuggerPresent
+CheckRemoteDebuggerPresent
+ZwUnmapViewOfSection
+cmd.exe /c
+powershell -nop -w hidden
+%APPDATA%
+%LOCALAPPDATA%
+%TEMP%
+%USERPROFILE%
+Software\Microsoft\Windows\CurrentVersion\Run
+SOFTWARE\Microsoft\Windows NT\CurrentVersion
+
+--- Language / locale detection logic ---
+GetUserDefaultLangID
+GetSystemDefaultLangID
+GetKeyboardLayout
+GetLocaleInfoW
+LANGID
+LCID
+MUI_LANGUAGE_NAME
+
+ru
+ru-RU
+uk-UA
+be-BY
+kk-KZ
+uz-UZ
+az-AZ
+hy-AM
+ka-GE
+tg-TJ
+en-US
+en-GB
+fr-FR
+de-DE
+es-ES
+pt-BR
+pl-PL
+cs-CZ
+sk-SK
+hu-HU
+ro-RO
+bg-BG
+tr-TR
+el-GR
+it-IT
+nl-NL
+sv-SE
+fi-FI
+no-NO
+da-DK
+zh-CN
+zh-TW
+ja-JP
+ko-KR
+ar-SA
+he-IL
+fa-IR
+hi-IN
+th-TH
+vi-VN
+id-ID
+
+--- Kill-switch / regional exclusion checks ---
+if(lang == "ru") exit
+if(lang == "ru-RU") terminate
+if(lang == "uk-UA") terminate
+if(lang == "be-BY") exit
+if(keyboard == 0x419) exit
+if(keyboard == 0x422) exit
+
+--- English fragments ---
+Access denied
+Invalid request
+Connection failed
+Retry later
+Unexpected error
+Update required
+System error
+File not found
+Permission denied
+
+--- French fragments ---
+Accès refusé
+Erreur inconnue
+Impossible de se connecter
+Mise à jour requise
+
+--- Spanish fragments ---
+Acceso denegado
+Error inesperado
+No se puede conectar
+Actualización requerida
+
+--- Portuguese (Brazil) ---
+Acesso negado
+Erro inesperado
+Não foi possível conectar
+Atualização necessária
+
+--- German fragments ---
+Zugriff verweigert
+Unbekannter Fehler
+Verbindung fehlgeschlagen
+
+--- Polish fragments ---
+Odmowa dostępu
+Nieznany błąd
+Nie można nawiązać połączenia
+
+--- Czech / Slovak ---
+Přístup odepřen
+Nelze se připojit
+Neznáma chyba
+Prístup odmietnutý
+
+--- Hungarian ---
+Hozzáférés megtagadva
+Ismeretlen hiba
+Kapcsolat sikertelen
+
+--- Romanian ---
+Acces refuzat
+Eroare necunoscută
+Conexiune eșuată
+
+--- Turkish ---
+Erişim reddedildi
+Bilinmeyen hata
+Bağlantı kurulamadı
+
+--- Greek ---
+Η πρόσβαση απορρίφθηκε
+Άγνωστο σφάλμα
+Αποτυχία σύνδεσης
+
+--- Russian ---
+Доступ запрещён
+Неизвестная ошибка
+Не удалось подключиться
+Обновление требуется
+
+--- Ukrainian ---
+Доступ заборонено
+Невідома помилка
+Не вдалося підключитися
+
+--- Serbian (Cyrillic / Latin) ---
+Приступ одбијен
+Podešavanja greška
+
+--- Bulgarian ---
+Достъп отказан
+Неизвестна грешка
+
+--- Hebrew (RTL) ---
+הגישה נדחתה
+שגיאה לא ידועה
+אין אפשרות להתחבר
+
+--- Arabic (RTL) ---
+تم رفض الوصول
+خطأ غير معروف
+فشل الاتصال
+
+--- Persian / Farsi ---
+دسترسی رد شد
+خطای ناشناخته
+اتصال ناموفق
+
+--- Hindi ---
+पहुँच अस्वीकृत
+अज्ञात त्रुटि
+कनेक्शन विफल
+
+--- Thai ---
+ปฏิเสธการเข้าถึง
+ข้อผิดพลาดที่ไม่รู้จัก
+ไม่สามารถเชื่อมต่อได้
+
+--- Vietnamese ---
+Truy cập bị từ chối
+Lỗi không xác định
+Không thể kết nối
+
+--- Indonesian ---
+Akses ditolak
+Kesalahan tidak dikenal
+Tidak dapat terhubung
+
+--- Chinese Simplified ---
+访问被拒绝
+未知错误
+无法连接
+需要更新
+
+--- Chinese Traditional ---
+存取被拒
+未知錯誤
+無法連線
+
+--- Japanese ---
+アクセスが拒否されました
+不明なエラー
+接続できません
+
+--- Korean ---
+접근이 거부되었습니다
+알 수 없는 오류
+연결할 수 없습니다
+
+--- C2 / network indicators ---
+http://example-update[.]com/check
+https://cdn-service[.]net/api/v1
+User-Agent: Mozilla/5.0
+Accept-Language:
+en-US,en;q=0.9
+ru-RU,ru;q=0.8
+zh-CN,zh;q=0.7
+
+--- Resource / path artifacts ---
+/lang/en-US.bin
+/lang/ru-RU.bin
+/lang/zh-CN.bin
+/lang/pt-BR.bin
+/lang/ar-SA.bin
+C:\Windows\System32\lang.ini
+C:\ProgramData\cache\locale.dat
+
+--- Encoding / parser edge cases ---
+resume r?sum? resumé
+caf\xe9 caf?
+na\xefve
+Москва Moscow
+İIıi
+汉字 カタカナ 한글
+مرحبا hello שלום
+हेलो hello สวัสดี
+
+--- Truncated / corrupted strings ---
+Connec
+Updat
+Err_
+Lang=
+Loca
+Keyb
+Exi
+Ter
+
+=== END OF FLOSS OUTPUT ===
